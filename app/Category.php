@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Roupa extends Model
+class Category extends Model
 {
-    protected $table = "roupas";
+    protected $table = "categories";
 
     public $timestamps = false;
 
     protected $fillable = [
-        'categoria', 'descricao', 'tamanho', 'ativo', 'id_user'
+        'name'
     ];
 
     protected $hidden = [

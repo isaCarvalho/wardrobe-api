@@ -4,7 +4,7 @@ $router->get('/', function () use ($router) {
     return "Welcome to Wardrobe API!";
 });
 
-$router->group(['prefix' => "/api/users"], function () use ($router) {
+$router->group(['prefix' => "users"], function () use ($router) {
     $router->get('', 'UserController@getAll');
     $router->get('{id}', 'UserController@getById');
     $router->post('', 'UserController@insert');
@@ -13,11 +13,21 @@ $router->group(['prefix' => "/api/users"], function () use ($router) {
     $router->delete('{id}', 'UserController@deleteById');
 });
 
-$router->group(["prefix" => "/api/roupas"], function () use ($router) {
-    $router->get('', 'RoupaController@getAll');
-    $router->get('{id}', 'RoupaController@getById');
-    $router->post('', 'RoupaController@insert');
-    $router->put('{id}', 'RoupaController@update');
-    $router->delete('', 'RoupaController@deleteAll');
-    $router->delete('{id}', 'RoupaController@deleteById');
+$router->group(["prefix" => "clothes"], function () use ($router) {
+    $router->get('', 'ClotheController@getAll');
+    $router->get('{id}', 'ClotheController@getById');
+    $router->post('', 'ClotheController@insert');
+    $router->put('{id}', 'ClotheController@update');
+    $router->delete('', 'ClotheController@deleteAll');
+    $router->delete('{id}', 'ClotheController@deleteById');
+});
+
+$router->group(["prefix" => "sizes"], function () use ($router) {
+    $router->get('', 'SizeController@getAll');
+    $router->get('{id}', 'SizeController@getById');
+});
+
+$router->group(["prefix" => "categories"], function () use ($router) {
+    $router->get('', 'CategoryController@getAll');
+    $router->get('{id}', 'CategoryController@getById');
 });

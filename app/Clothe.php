@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Clothe extends Model
 {
-    protected $table = "users";
+    protected $table = "clothes";
 
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'email', 'password', 'status',
+        'description', 'status', 'id_category', 'id_size', 'id_user'
     ];
 
     protected $hidden = [
-        'password',
+
     ];
 }
